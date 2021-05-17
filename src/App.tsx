@@ -5,7 +5,7 @@ import zhCN from "antd/lib/locale/zh_CN";
 
 import Employee from "./components/employee";
 import Setting from "./components/setting";
-
+import Add from "./components/add";
 import "./App.css";
 
 const { Header, Content, Footer } = Layout;
@@ -35,6 +35,7 @@ const App = ({ match }: any) => {
               <Route path="/" exact component={Employee} />
               <Route path="/employee" component={Employee} />
               <Route path="/setting" component={Setting} />
+              <Route path="/add" component={Add} />
             </div>
           </Content>
           <Footer className="footer">

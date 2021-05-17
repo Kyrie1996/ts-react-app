@@ -4,6 +4,7 @@ import { EmployeeRequest, EmployeeResponse } from "../../interface/employee";
 import { get } from "../../utils/request";
 import { GET_EMPLOYEE_URL } from "../../constants/urls";
 import { FormProps } from "antd/lib/form";
+import { Link} from 'react-router-dom'
 const { Option } = Select;
 
 // 定义属性类型
@@ -23,11 +24,11 @@ const QueryForm = (props: Props) => {
     queryEmployee({name,departmentId});
   };
   const queryEmployee = (param: EmployeeRequest) => {
-    get(GET_EMPLOYEE_URL, param).then(response => {
+    get('/api/users/', param).then(response => {
+      console.error(1, response)
       props.onDataChange(response);
     });
   };
-
   useEffect(() => {
     console.log(name, departmentId)
   })
@@ -47,6 +48,7 @@ const QueryForm = (props: Props) => {
         </Form.Item>
         <Form.Item>
           <Button type="primary" onClick={handleSubmit}>查询</Button>
+          <Button type="primary" style={{ marginLeft: 20}}><Link to='/add'>增加新员工</Link></Button>
         </Form.Item>
       </Form>
     </>
